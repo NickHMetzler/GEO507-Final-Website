@@ -1,0 +1,248 @@
+/* General Styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: #663300;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #996633;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* Main Content Styling */
+main {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 0 20px;
+}
+/* Header Styling */
+header {
+    background-color: #fff;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+header ul li:last-child {
+    margin-right: 0;
+}
+
+header ul li a {
+    display: block;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header ul li a:hover {
+    background-color: #8b572a;
+    color: #fff;
+}
+
+/* Main Content Styling */
+#introduction {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#introduction {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 120px;
+}
+
+#weather-widget {
+    background-color: #fffaef;
+    border: 2px solid #C0A392;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    width: 50%;
+  }
+  
+  #weather-widget h3 {
+    margin-top: 0;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  #temperature {
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  #description {
+    font-size: 0.9em;
+  }
+  
+  #textbox {
+    background-color: #F9ECD1;
+    border: 2px solid #C0A392;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  
+  #textbox h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  #textbox p {
+    margin: 10px 0;
+  }
+  
+  .slideshow-container {
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+    background-color: #fffaef;
+    border: 2px solid #C0A392;
+    border-radius: 10px;
+    padding: 20px;
+    height: 21em;
+  }
+  
+  .mySlides {
+    display: none;
+    text-align: center;
+  }
+  
+  .mySlides img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-description {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    header {
+        position: static;
+    }
+    /* Make the header navigation responsive */
+    header nav ul {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    header nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    header nav ul li a {
+      padding: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    /* Make the main content responsive */
+    #introduction {
+      flex-direction: column;
+      gap: 2rem;t
+      padding: 2rem 1rem;
+      margin-top: 10px;
+    }
+
+    #textbox {
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+    
+  }
+  
+
+

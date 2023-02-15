@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geography of Duntroon</title>
+    <link rel="stylesheet" type="text/css" href="geography.css">
+
+
+</head>
+<header>
+    <h1>Duntroon Community Project</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="geography.html">Geography</a></li>
+            <li><a href="wellbeing.html">Wellbeing</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <section id="introduction">
+        <h2>Domains of Wellbeing of Duntroon</h2>
+        <p>Introduction Text for this page
+        </p>
+    </section>
+    <section id="textbox">
+        <h2>Education</h2>
+        <p>Education is one of the key domains of wellbeing, and access to education is essential for personal growth, career advancement, and social mobility. In rural communities like Duntroon, access to education can be challenging due to various factors such as distance, weather conditions, and limited resources.
+            <br><br>
+            Duntroon is primarily a farming community and a getaway for older wealthy Toronto residents. The nearest primary and high schools are a 15-minute drive away, and school buses serve the area for the schools in the area. However, frequent school closures and bus cancellations in winter due to winter weather conditions can disrupt education and pose challenges for students and families.
+            <br><br>
+            Moreover, frequent road closures in the area due to winter weather conditions can also impact access to education. In some cases, families may have to travel long distances to get their children to school, which can be a significant barrier for families with limited transportation options. The lack of transportation systems in Duntroon adds to the challenge, as the only limited bus system stops in Collingwood, Stayner, and Wasaga Beach, which may not be accessible to all families.
+            <br><br>
+            Furthermore, the closest college to Duntroon is Georgian College with a tiny campus in the town of Collingwood. However, most people would need to go to the Georgian College Barrie campus for their program, which lies 45 minutes away by car. This distance can make it difficult for rural students to pursue higher education, especially if they do not have access to transportation or need to work to support their families.
+            <br><br>
+            The closest universities to Duntroon are Lakehead University in Orillia, which is 45 minutes away by car, or one of the universities in Toronto, including the University of Toronto, Toronto Metropolitan University, and York University. However, commuting daily to these universities is impossible for students in Duntroon due to the long distances and lack of transportation options.
+        </p>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img src="images/cci.jpeg">
+              <div class="image-description">Collingwood Collegiate Institute</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="images/olb.jpg">
+              <div class="image-description">Our Lady of the Bay Secondary School</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="images/georgian-college.jpg">
+              <div class="image-description">Georgian College Collingwood Campus</div>
+            </div>
+          </div>
+          <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 7000); // Change image every 7 seconds
+            }
+
+          </script>
+          
+    </section>
+    <section id="textbox">
+        <h2>Living Standards</h2>
+        <p>The Living Standards Domain of Wellbeing encompasses various factors, including adequate housing, access to affordable and quality food, and access to transportation. The living standards of a rural community such as Duntroon, Ontario, can have significant impacts on the wellbeing of its residents.
+            <br><br>
+            Duntroon is primarily a farming community, but it also houses many wealthy older Toronto residents who have moved to the area or purchased vacation homes. As a result, housing prices in the area are similar to those in Toronto, due to the supply sometimes higher, making it challenging for residents with low incomes to find affordable and adequate housing. Most of the residents of Duntroon live and work on generational family farms or work low-wage jobs in the local towns such as Stayner and Collingwood. The high housing costs and the low wages for many of the jobs in the area can make it difficult for residents to afford suitable housing.
+            <br><br>
+            The limited job options in Duntroon and the surrounding areas also result in many people working seasonal jobs, such as ski lift operators, ski/snowboard instructors, resort staff, servers, mechanics, and more. Seasonal jobs can make it difficult to find stable employment, which can negatively impact living standards.
+            <br><br>
+            Access to affordable and quality food can also impact living standards, and Duntroon has limited choices for grocery stores. The closest Costco is 45 minutes away in Barrie, which can be a significant inconvenience for residents.
+            <br><br>
+            Lastly, limited transportation options in Duntroon can make it challenging for residents to access essential services or employment opportunities. The community relies on personal vehicles to travel to places, making them a necessity. This reliance on personal vehicles can have significant financial impact on individuals and families.
+        </p>
+    </section>
+</body>
+
+</html>

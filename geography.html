@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Geography of Duntroon</title>
+  <link rel="stylesheet" type="text/css" href="geography.css">
+
+
+</head>
+<header>
+  <h1>Duntroon Community Project</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="geography.html">Geography</a></li>
+      <li><a href="wellbeing.html">Wellbeing</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+  <section id="introduction">
+    <h2>Geography of Duntroon</h2>
+    <p>Introduction Text for this page
+    </p>
+  </section>
+  <section id="textbox">
+    <h2>Location</h2>
+    <p>Duntroon is a small community located in the province of Ontario, Canada. Specifically, it is situated in the
+      southern part of the Georgian Bay area, which is part of the larger Great Lakes Basin. The community is part of the township of Clearview, which is located in Simcoe County. Throughout this site you will notice a lot of the information is collected from the Township of Clearview, due to the lack of information on such a small part of the rural landscape.
+      <br><br>
+      Duntroon is located approximately 120 kilometers north of the city of Toronto, the largest city in Canada. It is also situated near other notable communities such as Collingwood and Wasaga Beach, which are popular tourist destinations due to their location along the shores of Georgian Bay and Lake Huron.
+      <br><br>
+      One of the most interesting features of the Duntroon area is the Niagara Escarpment, a UNESCO World Biosphere Reserve that runs through the community. The escarpment is a prominent geological formation in the region, characterized by steep cliffs, forests, and numerous waterfalls. In addition to the escarpment, the area is also home to several provincial parks, conservation areas, and recreational trails, offering visitors opportunities for
+      hiking, skiing, and other outdoor activities.
+    </p>
+  </section>
+  <section id="textbox">
+    <h2>Climate</h2>
+    <p>Clearview Township, which contains Duntroon, has a humid continental climate, characterized by four distinct seasons. Winters are long, cold, and snowy with average temperatures around -5°C (23°F) and occasional snowstorms. Spring and fall are mild and relatively short with temperatures ranging from around 5-15°C (41-59°F). Summers are warm and humid with average temperatures around 20-25°C (68-77°F) and occasional heatwaves.
+      <br><br>
+      In terms of precipitation, Duntroon receives an average of around 538mm (21 inches) of precipitation per year, with rainfall occurring mostly in the summer months and snowfall occurring in the winter months. Thunderstorms are not uncommon in the summer, and there is occasional freezing rain in the winter.
+      <br><br>
+      Due to its location in a region with a lot of natural beauty, Duntroon is also subject to some interesting weather patterns such as lake-effect snow, where cold winds from the north pick up moisture from nearby Georgian Bay, resulting in heavier snowfall in the area. Which makes it a popular destination for winter sports.
+    </p>
+
+    <div id="weather-widget">
+      <h3>Current Weather in Duntroon</h3>
+      <p id="temperature"></p>
+      <p id="description"></p>
+    </div>
+
+    <script>
+      const postalCode = "L0M"; // Replace with the postal code you want to search for
+      const apiKey = "e9c440760cfb40b8be1200858231402"; // Replace with your WeatherAPI API key
+
+      const temperatureElement = document.getElementById("temperature");
+      const descriptionElement = document.getElementById("description");
+
+      const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${postalCode}&aqi=no`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          temperatureElement.innerText = `${data.current.temp_c.toFixed(1)}°C`;
+          descriptionElement.innerText = data.current.condition.text;
+        })
+        .catch(error => console.log(error));
+    </script>
+  </section>
+  <section id="textbox">
+    <h2>Topography</h2>
+    <p>Duntroon is located in the rolling hills of the Niagara Escarpment in Ontario, Canada. The area is characterized by a mix of forested areas, fields, and rocky outcroppings. The nearby Blue Mountains and the Niagara Escarpment provide the area with beautiful natural scenery, including hiking trails, waterfalls, and rocky cliffs. 
+    <br><br>
+    The Blue Mountains are a popular destination for winter sports enthusiasts, with ski resorts in the area. There are multiple rivers that flow through the area, providing opportunities for fishing. With the lake in the summer providing oppurtunities for even more water-based activities. Notable landmarks in the area include the Devil's Glen Provincial Park, which offers hiking trails and cross-country skiing, and the Nottawasaga Lookout Provincial Park, which provides stunning views of the surrounding area. 
+    <br><br>
+    The area is also known for its apple orchards and cider mills.
+  </p>
+  </section>
+  <section id="textbox">
+    <h2>Flora and Fauna</h2>
+    <p>Duntroon has a mix of plant and animal life common to the area. The natural habitats in and around the community provide suitable conditions for a variety of wildlife species. The region has both coniferous and deciduous forests, with a mix of maple, birch, and pine trees.
+    <br><br>
+    Common plant species found in the area include Eastern white pine, sugar maple, yellow birch, and red oak. The forests are also home to various types of ferns, mosses, and lichens.
+    <br><br>
+    The region is home to many wildlife species, including white-tailed deer, moose, black bears, coyotes, and wolves. Smaller animals such as chipmunks, squirrels, raccoons, and skunks are also common in the area. There are also several bird species that can be found, including bald eagles, red-tailed hawks, and wild turkeys.
+    <br><br>
+    There are a few unique species found in the region, such as the Massasauga Rattlesnake, which is an endangered species in Ontario. The Georgian Bay region is also known for its fish populations, with many species of trout, salmon, and bass found in the nearby lakes and rivers.
+    </p>
+  </section>
+  <section id="textbox">
+    <h2>Population</h2>
+    <p>[Provide information about the population of your location. Include factors such as population density, demographic information, and any notable features of the population, such as ethnic or cultural groups.]</p>
+  </section>
+  <section id="textbox">
+    <h2>Economy</h2>
+    <p>[Provide an overview of the economy of your location. Include information about major industries, exports, imports, and any notable economic trends or challenges.]</p>
+  </section>
+</body>
+
+</html>

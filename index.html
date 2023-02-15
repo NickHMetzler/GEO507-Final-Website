@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Duntroon Community Project</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+	<header>
+		<h1>Duntroon Community Project</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="geography.html">Geography</a></li>
+				<li><a href="wellbeing.html">Wellbeing</a></li>
+				<li><a href="recommendations.html">Recommendations</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section id="introduction">
+			<h2>Welcome to Duntroon</h2>
+			<p>
+			Located in the heart of Southern Ontario, Duntroon is a charming community that holds a special place in my heart. I moved there with my parents at the height of the pandemic and lived there for almost three years. The region's natural beauty, serene setting, and outdoor activities made it a perfect refuge during the pandemic.
+			<br><br>
+			Duntroon is situated in the Township of Clearview, just south of Collingwood, and east of Wasaga Beach. The area is characterized by rolling hills, pristine lakes, and breathtaking views of the Niagara Escarpment. The town is primarily a farming community and is known for its apple orchards and the famous Duntroon Cider House.
+			<br><br>
+			This report will focus on the Living Standards and Education domains of wellbeing in Duntroon. The characteristics and issues I want to address within these domains are the challenges faced by families and students in the rural community. These include limited access to education, lack of transportation, and difficulty in accessing essential services. The report will provide recommendations on how to improve the living standards and education opportunities in Duntroon, which can contribute to the overall wellbeing of the community.
+			</p>
+		</section>
+		<section id="textbox">
+			<div class="container">
+				<h2>Explore Duntroon</h2>
+				<div class="image-map-container">
+					<div class="image-container">
+						<img src="images/duntroon.jpg" alt="Duntroon">
+						<p>Duntroon offers golfing, cidery experiences, skiing/bike trails, and gorgeous views of Georgian Bay</p>
+					</div>
+					<div class="image-container">
+						<div id="map"></div>
+						<p>An interactive map of Duntroon (Red Marker), and my house (Blue Marker)</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			mapboxgl.accessToken = 'pk.eyJ1Ijoibmlja21ldHoiLCJhIjoiY2wxYmgxdXozMnM0djNicHd6cXoxa3JiYyJ9.GgDsHaj9D_QuR3q5GKykMg';
+			var map = new mapboxgl.Map({
+				container: 'map',
+				style: 'mapbox://styles/mapbox/satellite-streets-v11',
+				center: [-80.213232, 44.411778],
+				zoom: 12
+			});
+
+			var town_marker = new mapboxgl.Marker({ color: "red" })
+				.setLngLat([-80.194582, 44.397835])
+				.addTo(map)
+				.setPopup(new mapboxgl.Popup().setHTML("<h3>Duntroon, ON</h3>"));
+
+
+			var house_marker = new mapboxgl.Marker({ color: 'lightblue' })
+				.setLngLat([-80.235376, 44.422199])
+				.addTo(map)
+				.setPopup(new mapboxgl.Popup().setHTML("<h3>My House</h3>"));
+		});
+	</script>
+</body>
+
+</html>
