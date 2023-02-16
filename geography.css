@@ -202,6 +202,24 @@ header ul li a:hover {
     from {opacity: .4} 
     to {opacity: 1}
   }
+
+  .image-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffaef;
+    border: 2px solid #C0A392;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+  }
+
+.image-container img {
+    width: 100%;
+  }
   
 
 /* Responsive Styling */
@@ -230,10 +248,10 @@ header ul li a:hover {
     
     /* Make the main content responsive */
     #introduction {
-      flex-direction: column;
-      gap: 2rem;t
-      padding: 2rem 1rem;
-      margin-top: 10px;
+      flex-direction: row;
+      gap: 2rem;
+      padding: 2rem 10px;
+      margin-top: 0;
     }
 
     #textbox {
