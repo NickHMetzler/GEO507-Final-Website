@@ -78,6 +78,11 @@
     The Blue Mountains are a popular destination for winter sports enthusiasts, with ski resorts in the area. There are multiple rivers that flow through the area, providing opportunities for fishing. With the lake in the summer providing oppurtunities for even more water-based activities. Notable landmarks in the area include the Devil's Glen Provincial Park, which offers hiking trails and cross-country skiing, and the Nottawasaga Lookout Provincial Park, which provides stunning views of the surrounding area. 
     <br><br>
     The area is also known for its apple orchards and cider mills.
+
+    <div id="textbox-image-container">
+      <img src="images/pretty-river.jpg" alt="Pretty River" />
+      <p>Pretty River Valley pictured from Pretty River Road</p>
+    </div>
   </p>
   </section>
   <section id="textbox">
@@ -90,10 +95,84 @@
     <br><br>
     There are a few unique species found in the region, such as the Massasauga Rattlesnake, which is an endangered species in Ontario. The Georgian Bay region is also known for its fish populations, with many species of trout, salmon, and bass found in the nearby lakes and rivers.
     </p>
+    <div id="textbox-image-container">
+      <img src="images/massasauga-rattlesnake.jpg" alt="Massasauga Rattlesnake" />
+      <p>Endangered Species: Massasauga Rattlesnake</p>
+    </div>
   </section>
   <section id="textbox">
     <h2>Population</h2>
-    <p>[Provide information about the population of your location. Include factors such as population density, demographic information, and any notable features of the population, such as ethnic or cultural groups.]</p>
+    <p>Due to lack of information, I will be focusing on Clearview Township for Population information. Duntroon is located within Clearview Township, which is part of Simcoe County. Clearview Township has a population of 14,151, with a population density of 25.4 people per square kilometer. The average age of the township is 42.6 years, which is slightly higher than the national average of 40.9 years.
+      <br><br>
+      In terms of demographic information, Clearview Township is predominantly white, with 95.4% of the population identifying as such. The remaining 4.6% of the population identifies as belonging to other ethnic groups. The most common non-official languages spoken as mother-tongues in the area are German, Dutch, Italian, Polish, and Portuguese, the first two can be attributed to the large Mennonite population in the area.
+      <br><br>
+      The average income in Clearview Township is $45,144 per year, which is slightly lower than the national average. Meanwhile in The Blue Mountains located just to the west and north, the average income is $64,394 per year.
+      <br><br>
+      As for notable features of the population, it is worth noting that only about 25-30% of the population are school age (Primary School, High School, or University/College). The remaining 70-75% of the population is comprised of adults, many of whom work in the agricultural and tourism industries that are prominent in the area. The Mennonite population in the area is also significant and has contributed to the cultural and linguistic diversity of the community.
+      <br><br>
+      In summary, Duntroon is a small community within Clearview Township, which is a predominantly white and rural area with a relatively high average age and a significant Mennonite population. The area is characterized by its agricultural and tourism industries.</p>
+    
+      <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <img src="images/age-population.png" style="width:100%">
+          <div class="text">Age of Clearview Township and Simcoe County's Population</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <img src="images/density-population.png" style="width:100%">
+          <div class="text">Population Density of Clearview Township and Simcoe County</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <img src="images/mother-tongues-population.png" style="width:100%">
+          <div class="text">Top Mother-Tongues of Clearview Township</div>
+        </div>
+      
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+      <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        } 
+      </script>
+     
   </section>
   <section id="textbox">
     <h2>Economy</h2>
