@@ -141,6 +141,13 @@ header ul li a:hover {
     height: 500px;
   }
 
+  footer {
+    border: 2px solid #C0A392;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
   #textbox {
     background-color: #F9ECD1;
     border: 2px solid #C0A392;

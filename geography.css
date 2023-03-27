@@ -181,6 +181,14 @@ header ul li a:hover {
     width: 50%;
   }
 
+
+  footer {
+    border: 2px solid #C0A392;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
   .slideshow-container {
     position: relative;
     margin: 0 auto;
