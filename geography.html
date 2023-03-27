@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <title>Geography of Duntroon</title>
   <link rel="stylesheet" type="text/css" href="geography.css">
-
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
 
 </head>
 <header>
@@ -30,70 +31,143 @@
   <section id="textbox">
     <h2>Location</h2>
     <p>Duntroon is a small community located in the province of Ontario, Canada. Specifically, it is situated in the
-      southern part of the Georgian Bay area, which is part of the larger Great Lakes Basin. The community is part of the township of Clearview, which is located in Simcoe County. Throughout this site you will notice a lot of the information is collected from the Township of Clearview, due to the lack of information on such a small part of the rural landscape.
+      southern part of the Georgian Bay area, which is part of the larger Great Lakes Basin. The community is part of
+      the township of Clearview, which is located in Simcoe County. Throughout this site you will notice a lot of the
+      information is collected from the Township of Clearview, due to the lack of information on such a small part of
+      the rural landscape.
       <br><br>
-      Duntroon is located approximately 120 kilometers north of the city of Toronto, the largest city in Canada. It is also situated near other notable communities such as Collingwood and Wasaga Beach, which are popular tourist destinations due to their location along the shores of Georgian Bay and Lake Huron.
+      Duntroon is located approximately 120 kilometers north of the city of Toronto, the largest city in Canada. It is
+      also situated near other notable communities such as Collingwood and Wasaga Beach, which are popular tourist
+      destinations due to their location along the shores of Georgian Bay and Lake Huron.
       <br><br>
-      One of the most interesting features of the Duntroon area is the Niagara Escarpment, a UNESCO World Biosphere Reserve that runs through the community. The escarpment is a prominent geological formation in the region, characterized by steep cliffs, forests, and numerous waterfalls. In addition to the escarpment, the area is also home to several provincial parks, conservation areas, and recreational trails, offering visitors opportunities for
+      One of the most interesting features of the Duntroon area is the Niagara Escarpment, a UNESCO World Biosphere
+      Reserve that runs through the community. The escarpment is a prominent geological formation in the region,
+      characterized by steep cliffs, forests, and numerous waterfalls. In addition to the escarpment, the area is also
+      home to several provincial parks, conservation areas, and recreational trails, offering visitors opportunities for
       hiking, skiing, and other outdoor activities.
     </p>
-  </section>
-  <section id="textbox">
-    <h2>Climate</h2>
-    <p>Clearview Township, which contains Duntroon, has a humid continental climate, characterized by four distinct seasons. Winters are long, cold, and snowy with average temperatures around -5°C (23°F) and occasional snowstorms. Spring and fall are mild and relatively short with temperatures ranging from around 5-15°C (41-59°F). Summers are warm and humid with average temperatures around 20-25°C (68-77°F) and occasional heatwaves.
-      <br><br>
-      In terms of precipitation, Duntroon receives an average of around 538mm (21 inches) of precipitation per year, with rainfall occurring mostly in the summer months and snowfall occurring in the winter months. Thunderstorms are not uncommon in the summer, and there is occasional freezing rain in the winter.
-      <br><br>
-      Due to its location in a region with a lot of natural beauty, Duntroon is also subject to some interesting weather patterns such as lake-effect snow, where cold winds from the north pick up moisture from nearby Georgian Bay, resulting in heavier snowfall in the area. Which makes it a popular destination for winter sports.
-    </p>
-
-    <div id="weather-widget">
-      <h3>Current Weather in Duntroon</h3>
-      <p id="temperature"></p>
-      <p id="description"></p>
+    <div id="sidebyside-container">
+      <div id="textbox-image-container">
+        <img src="images/Escaerpment.jpeg" alt="Niagara Escarpment" />
+        <p>Map of the Niagara Escarpment</p>
+      </div>
+      <div id="textbox-image-container">
+        <div id="map"></div>
+        <p>Duntroon's location in Southern Ontario<br>(Interactive Map)</p>
+      </div>
     </div>
 
     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        mapboxgl.accessToken = 'pk.eyJ1Ijoibmlja21ldHoiLCJhIjoiY2wxYmgxdXozMnM0djNicHd6cXoxa3JiYyJ9.GgDsHaj9D_QuR3q5GKykMg';
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/satellite-streets-v11',
+          center: [-80.213232, 44.411778],
+          zoom: 6
+        });
+  
+        var town_marker = new mapboxgl.Marker({ color: "red" })
+          .setLngLat([-80.194582, 44.397835])
+          .addTo(map)
+          .setPopup(new mapboxgl.Popup().setHTML("<h3>Duntroon, ON</h3>"));
+  
+      });
+    </script>
+
+
+  </section>
+  <section id="textbox">
+    <h2>Climate</h2>
+    <p>Clearview Township, which contains Duntroon, has a humid continental climate, characterized by four distinct
+      seasons. Winters are long, cold, and snowy with average temperatures around -5°C (23°F) and occasional snowstorms.
+      Spring and fall are mild and relatively short with temperatures ranging from around 5-15°C (41-59°F). Summers are
+      warm and humid with average temperatures around 20-25°C (68-77°F) and occasional heatwaves.
+      <br><br>
+      In terms of precipitation, Duntroon receives an average of around 538mm (21 inches) of precipitation per year,
+      with rainfall occurring mostly in the summer months and snowfall occurring in the winter months. Thunderstorms are
+      not uncommon in the summer, and there is occasional freezing rain in the winter.
+      <br><br>
+      Due to its location in a region with a lot of natural beauty, Duntroon is also subject to some interesting weather
+      patterns such as lake-effect snow, where cold winds from the north pick up moisture from nearby Georgian Bay,
+      resulting in heavier snowfall in the area. Which makes it a popular destination for winter sports.
+    </p>
+
+    <div id="sidebyside-container">
+      <div id="textbox-image-container">
+        <img src="images/Frozen-Lighthouse.jpeg" alt="Georgian Bay in Winter" />
+        <p>Georgian Bay in Winter<br>Collingwoods Lighthouse and The Blue Mountains</p>
+      </div>
+      <div id="weather-widget">
+        <h3>Current Weather in Duntroon</h3>
+        <p id="temperature"></p>
+        <p id="description"></p>
+        <img id="weather-image" src="" alt="" onerror="setDefaultImage()">
+      </div>
+    </div>
+    
+    <script>
       const postalCode = "L0M"; // Replace with the postal code you want to search for
       const apiKey = "e9c440760cfb40b8be1200858231402"; // Replace with your WeatherAPI API key
-
+    
       const temperatureElement = document.getElementById("temperature");
       const descriptionElement = document.getElementById("description");
-
+      const weatherImageElement = document.getElementById("weather-image");
+    
       const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${postalCode}&aqi=no`;
-
+    
+      function setDefaultImage() {
+        weatherImageElement.src = "images/NA.png";
+      }
+    
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
           temperatureElement.innerText = `${data.current.temp_c.toFixed(1)}°C`;
           descriptionElement.innerText = data.current.condition.text;
+          const imageName = data.current.condition.text.replace(/\s/g, "-");
+          weatherImageElement.src = `images/${imageName}.png`;
         })
         .catch(error => console.log(error));
     </script>
+    
   </section>
   <section id="textbox">
     <h2>Topography</h2>
-    <p>Duntroon is located in the rolling hills of the Niagara Escarpment in Ontario, Canada. The area is characterized by a mix of forested areas, fields, and rocky outcroppings. The nearby Blue Mountains and the Niagara Escarpment provide the area with beautiful natural scenery, including hiking trails, waterfalls, and rocky cliffs. 
-    <br><br>
-    The Blue Mountains are a popular destination for winter sports enthusiasts, with ski resorts in the area. There are multiple rivers that flow through the area, providing opportunities for fishing. With the lake in the summer providing oppurtunities for even more water-based activities. Notable landmarks in the area include the Devil's Glen Provincial Park, which offers hiking trails and cross-country skiing, and the Nottawasaga Lookout Provincial Park, which provides stunning views of the surrounding area. 
-    <br><br>
-    The area is also known for its apple orchards and cider mills.
+    <p>Duntroon is located in the rolling hills of the Niagara Escarpment in Ontario, Canada. The area is characterized
+      by a mix of forested areas, fields, and rocky outcroppings. The nearby Blue Mountains and the Niagara Escarpment
+      provide the area with beautiful natural scenery, including hiking trails, waterfalls, and rocky cliffs.
+      <br><br>
+      The Blue Mountains are a popular destination for winter sports enthusiasts, with ski resorts in the area. There
+      are multiple rivers that flow through the area, providing opportunities for fishing. With the lake in the summer
+      providing oppurtunities for even more water-based activities. Notable landmarks in the area include the Devil's
+      Glen Provincial Park, which offers hiking trails and cross-country skiing, and the Nottawasaga Lookout Provincial
+      Park, which provides stunning views of the surrounding area.
+      <br><br>
+      The area is also known for its apple orchards and cider mills.
 
     <div id="textbox-image-container">
       <img src="images/pretty-river.jpg" alt="Pretty River" />
       <p>Pretty River Valley pictured from Pretty River Road</p>
     </div>
-  </p>
+    </p>
   </section>
   <section id="textbox">
     <h2>Flora and Fauna</h2>
-    <p>Duntroon has a mix of plant and animal life common to the area. The natural habitats in and around the community provide suitable conditions for a variety of wildlife species. The region has both coniferous and deciduous forests, with a mix of maple, birch, and pine trees.
-    <br><br>
-    Common plant species found in the area include Eastern white pine, sugar maple, yellow birch, and red oak. The forests are also home to various types of ferns, mosses, and lichens.
-    <br><br>
-    The region is home to many wildlife species, including white-tailed deer, moose, black bears, coyotes, and wolves. Smaller animals such as chipmunks, squirrels, raccoons, and skunks are also common in the area. There are also several bird species that can be found, including bald eagles, red-tailed hawks, and wild turkeys.
-    <br><br>
-    There are a few unique species found in the region, such as the Massasauga Rattlesnake, which is an endangered species in Ontario. The Georgian Bay region is also known for its fish populations, with many species of trout, salmon, and bass found in the nearby lakes and rivers.
+    <p>Duntroon has a mix of plant and animal life common to the area. The natural habitats in and around the community
+      provide suitable conditions for a variety of wildlife species. The region has both coniferous and deciduous
+      forests, with a mix of maple, birch, and pine trees.
+      <br><br>
+      Common plant species found in the area include Eastern white pine, sugar maple, yellow birch, and red oak. The
+      forests are also home to various types of ferns, mosses, and lichens.
+      <br><br>
+      The region is home to many wildlife species, including white-tailed deer, moose, black bears, coyotes, and wolves.
+      Smaller animals such as chipmunks, squirrels, raccoons, and skunks are also common in the area. There are also
+      several bird species that can be found, including bald eagles, red-tailed hawks, and wild turkeys.
+      <br><br>
+      There are a few unique species found in the region, such as the Massasauga Rattlesnake, which is an endangered
+      species in Ontario. The Georgian Bay region is also known for its fish populations, with many species of trout,
+      salmon, and bass found in the nearby lakes and rivers.
     </p>
     <div id="textbox-image-container">
       <img src="images/massasauga-rattlesnake.jpg" alt="Massasauga Rattlesnake" />
@@ -102,16 +176,31 @@
   </section>
   <section id="textbox">
     <h2>Population</h2>
-    <p>Due to lack of information, I will be focusing on Clearview Township for Population information. Duntroon is located within Clearview Township, which is part of Simcoe County. Clearview Township has a population of 14,151, with a population density of 25.4 people per square kilometer. The average age of the township is 42.6 years, which is slightly higher than the national average of 40.9 years.
+    <p>Due to lack of information, I will be focusing on Clearview Township for Population information. Duntroon is
+      located within Clearview Township, which is part of Simcoe County. Clearview Township has a population of 14,151,
+      with a population density of 25.4 people per square kilometer. The average age of the township is 42.6 years,
+      which is slightly higher than the national average of 40.9 years.
       <br><br>
-      In terms of demographic information, Clearview Township is predominantly white, with 95.4% of the population identifying as such. The remaining 4.6% of the population identifies as belonging to other ethnic groups. The most common non-official languages spoken as mother-tongues in the area are German, Dutch, Italian, Polish, and Portuguese, the first two can be attributed to the large Mennonite population in the area.
+      In terms of demographic information, Clearview Township is predominantly white, with 95.4% of the population
+      identifying as such. The remaining 4.6% of the population identifies as belonging to other ethnic groups. The most
+      common non-official languages spoken as mother-tongues in the area are German, Dutch, Italian, Polish, and
+      Portuguese, the first two can be attributed to the large Mennonite population in the area.
       <br><br>
-      The average income in Clearview Township is $45,144 per year, which is slightly lower than the national average. Meanwhile in The Blue Mountains located just to the west and north, the average income is $64,394 per year.
+      The average income in Clearview Township is $45,144 per year, which is slightly lower than the national average.
+      Meanwhile in The Blue Mountains located just to the west and north, the average income is $64,394 per year.
       <br><br>
-      As for notable features of the population, it is worth noting that only about 25-30% of the population are school age (Primary School, High School, or University/College). The remaining 70-75% of the population is comprised of adults, many of whom work in the agricultural and tourism industries that are prominent in the area. The Mennonite population in the area is also significant and has contributed to the cultural and linguistic diversity of the community.
+      As for notable features of the population, it is worth noting that only about 25-30% of the population are school
+      age (Primary School, High School, or University/College). The remaining 70-75% of the population is comprised of
+      adults, many of whom work in the agricultural and tourism industries that are prominent in the area. The Mennonite
+      population in the area is also significant and has contributed to the cultural and linguistic diversity of the
+      community.
       <br><br>
-      In summary, Duntroon is a small community within Clearview Township, which is a predominantly white and rural area with a relatively high average age and a significant Mennonite population. The area is characterized by its agricultural and tourism industries.</p>
-    
+      In summary, Duntroon is a small community within Clearview Township, which is a predominantly white and rural area
+      with a relatively high average age and a significant Mennonite population. The area is characterized by its
+      agricultural and tourism industries.
+    </p>
+
+   
       <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
@@ -119,64 +208,94 @@
           <img src="images/age-population.png" style="width:100%">
           <div class="text">Age of Clearview Township and Simcoe County's Population</div>
         </div>
-      
+
         <div class="mySlides fade">
           <img src="images/density-population.png" style="width:100%">
           <div class="text">Population Density of Clearview Township and Simcoe County</div>
         </div>
-      
+
         <div class="mySlides fade">
           <img src="images/mother-tongues-population.png" style="width:100%">
           <div class="text">Top Mother-Tongues of Clearview Township</div>
         </div>
-      
+
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       <br>
-      
+
       <!-- The dots/circles -->
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
       </div>
-      <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
 
-        // Next/previous controls
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
         }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
         }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      } 
+    </script>
 
-        function showSlides(n) {
-          let i;
-          let slides = document.getElementsByClassName("mySlides");
-          let dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = slides.length}
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-          }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";
-          dots[slideIndex-1].className += " active";
-        } 
-      </script>
-     
   </section>
   <section id="textbox">
     <h2>Economy</h2>
-    <p>[Provide an overview of the economy of your location. Include information about major industries, exports, imports, and any notable economic trends or challenges.]</p>
+    <p>Duntroon, which is located in Clearview Township, is a community that is heavily influenced by the local agricultural industry. Similar to the rest of Clearview Township, Duntroon's primary crops include soybeans and corn, along with ciderys/orchards. As part of Clearview Township's economic development plan, there has been a push to diversify crops into more specialized markets, such as micro-herbs and cannabis. In fact, Duntroon may also benefit from the presence of two major Health Canada cannabis producers, Agripharm Corp. and the Peace Naturals Project, which are located in Clearview Township.<br><br>
+
+      Apart from agriculture, Duntroon also taps into the tourism industry, which is primarily focused on the nearby town of Creemore, Hiking/Biking trails, and The Blue Mountains area. Creemore's bustling business improvement area features a number of local businesses, including art stores, cafes, and restaurants, which may provide opportunities for Duntroon's small businesses to expand and attract more visitors. Additionally, Creemore Springs Brewery, Ontario's oldest craft brewery, is also located nearby and may provide potential partnership opportunities for Duntroon's local businesses.<br><br>
+      
+      According to Canadian census data, Clearview Township's population is largely composed of working-class individuals. The average household income in Clearview was $68,998 in 2016, and the employment participation rate was at 67%. 
+      <br>
+      Additionally, approximately 50% of the population did not complete high school or any post-secondary education. Amongst employed citizens of Duntroon, the top 3 industries were manufacturing, agriculture, and construction. However, with the economic impact of the COVID-19 pandemic, many small businesses in Duntroon have been affected, resulting in closures and/or heavy restrictions on business operations. Support for small businesses affected by the pandemic was provided through the Clearview COVID-19 Community Assistance Fund, which may have helped alleviate some of the economic damage experienced by Duntroon's small businesses.
+      <br><br>
+      With mandates now largely lifted, Duntroon may look to revamp economic growth in the area. Duntroon may consider expanding its agricultural sector by diversifying its crop offerings or exploring new farming techniques. 
+      <br>
+      Moreover, Duntroon may also seek to attract more tourists by promoting its local businesses and attractions, such as hiking trails or scenic views. Lastly, Duntroon may also colaborates with nearby communities, such as Creemore, Wasaga Beach, and The Blue Mountains, to create a more robust regional economy that benefits all of Clearview Township and the surrounding areas.
+    </p>
+    <div id="textbox-image-container">
+      <img src="images/quarry.PNG" alt="Niagara Escarpment" />
+      <p>Duntroon Quarry<br>Located less than a Kilometre to the West of the town</p>
+    </div>
+
+    <div id="sidebyside-container">
+      <div id="textbox-image-container">
+        <img src="images/industry.png" alt="Niagara Escarpment" />
+        <p>Distribution of Industry in Clearview Township</p>
+      </div>
+      <div id="textbox-image-container">
+        <img src="images/occupations.png" alt="Niagara Escarpment" />
+        <p>Distribution of Occupation in Clearview Township</p>
+      </div>
+    </div>
+    
+
+
+
   </section>
 </body>
 
